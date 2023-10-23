@@ -16,10 +16,32 @@ namespace GameProject
         {
             const string MSGWelcome = "Benvingut a Herois vs Monstre!";
             const string MSGDoYouWant = "Que vols fer?";
-            const string MSGDoYouWantError = "Introdueix un valor entre el 1 o el 0, Que vols fer?";
+            const string MSGDoYouWantError = "Introdueix un valor entre el 1 o el 2, Que vols fer?";
             const string MSGDoYouWantYes = "1. Jugar!";
-            const string MSGDoYouWantQuit = "0. Sortir";
-            
+            const string MSGDoYouWantQuit = "2. Sortir";
+
+            /* Constantes valores Max i Min de los atributos */
+            const int HpMinArcher = 1500, HpMaxArcher = 2000;
+            const int AtkMinArcher = 180, AtkMaxArcher = 300;
+            const int DamageReductionMinArcher = 25, DamageReductionMaxArcher = 40;
+
+            const int HpMinBarbarian = 3000, HpMaxBarbarian = 3750;
+            const int AtkMinBarbarian = 150, AtkMaxBarbarian = 250;
+            const int DamageReductionMinBarbarian = 35, DamageReductionMaxBarbarian = 45;
+
+            const int HpMinMagician = 1000, HpMaxMagician = 1500;
+            const int AtkMinMagician = 300, AtkMaxMagician = 350;
+            const int DamageReductionMinMagician = 20, DamageReductionMaxMagician = 35;
+
+            const int HpMinDruid = 2000, HpMaxDruid = 2500;
+            const int AtkMinDruid = 70, AtkMaxDruid = 120;
+            const int DamageReductionMinDruid = 25, DamageReductionMaxDruid = 40;
+
+            const int HpMinMonster = 9000, HpMaxMonster = 12000;
+            const int AtkMinMonster = 250, AtkMaxMonster = 400;
+            const int DamageReductionMinMonster = 20, DamageReductionMaxMonster = 30;
+
+
             /* MSG Creacion heroes i monstruo + MSG Introducir valores heroes i mosntruo */
             const string MSGStartGame = "Perfecte! Comencem a crear presonatges:";
 
@@ -51,7 +73,10 @@ namespace GameProject
             const string MSGRequieredValues = "Introdueix els valors requerits:";
             
             const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
-
+            /* Altres constants */
+            const int play = 1;
+            const int quit = 2;
+            const int zero = 0;
 
             /* Declaracio variables heroes */
             int hparcher = 0, atkarcher = 0, damagereductionarcher = 0, cooldownhabilityarcher = 5;
@@ -109,9 +134,9 @@ namespace GameProject
                     startgame = Convert.ToInt32(Console.ReadLine());
                     errorstartgame = true;
                     countdowntrystartgame--;
-                } while (startgame != 0 && startgame != 1 && countdowntrystartgame != 0);
+                } while (startgame != quit && startgame != play && countdowntrystartgame != zero);
 
-                if (startgame == 1 && countdowntrystartgame != 0)
+                if (startgame == play && countdowntrystartgame != zero)
                 {
                     Console.WriteLine("");
                     Console.WriteLine(MSGStartGame);
@@ -120,13 +145,11 @@ namespace GameProject
                     /* Creacio personatges */
 
                     countdowntryCreateCharacter = 3;
-                    countdowntrySetHpCharacter = 3;
-                    countdowntrySetAtkCharacter = 3; 
-                    countdowntrySetDamageReductionCharacter = 3;  
                         
                     /* Demanar dades usuari Archer */
                     do
                     {
+                        countdowntrySetHpCharacter = 3;
                         errorSetValueCharacter = false;
                         Console.WriteLine(MSGCreateArcher);
                         Console.WriteLine(MSGRequieredValues);
@@ -143,35 +166,55 @@ namespace GameProject
                                 Console.WriteLine("");
                             }
                             hparcher = Convert.ToInt32(Console.ReadLine());
-                            atkarcher = Convert.ToInt32(Console.ReadLine());
-                            damagereductionarcher = Convert.ToInt32(Console.ReadLine());
                             errorSetValueCharacter = true;
                             countdowntrySetHpCharacter--;
 
-                        } while (!(hparcher >= 1500 && hparcher <= 2000 && countdowntrySetHpCharacter != 0));
+                        } while (!(hparcher >= HpMinArcher && hparcher <= HpMaxArcher && countdowntrySetHpCharacter != zero));
+
                         /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
-                        if (countdowntrySetHpCharacter != 0)
+                        
+                        if (countdowntrySetHpCharacter != zero)
                         {
+                            countdowntrySetAtkCharacter = 3;
+                            errorSetValueCharacter = false;
+                            Console.WriteLine(MSGSetAtkArcher);
                             do
                             {
                                 if (errorSetValueCharacter)
                                 {
                                     Console.WriteLine("");
                                     Console.WriteLine(MSGSetError);
-                                    Console.WriteLine(MSGRequieredValues);
-                                    Console.WriteLine(MSGSetHpArcher);
+                                    Console.WriteLine(MSGSetAtkArcher);
                                     Console.WriteLine("");
                                 }
-                                hparcher = Convert.ToInt32(Console.ReadLine());
                                 atkarcher = Convert.ToInt32(Console.ReadLine());
-                                damagereductionarcher = Convert.ToInt32(Console.ReadLine());
                                 errorSetValueCharacter = true;
-                                countdowntrySetHpCharacter--;
+                                countdowntrySetAtkCharacter--;
 
-                            } while (!((hparcher >= 1500 && hparcher <= 2000) && (atkarcher >= 180 && atkarcher <= 300) && (damagereductionarcher >= 25 && damagereductionarcher <= 40) && (countdowntrySetHpCharacter != 0)));
+                            } while (!(atkarcher >= AtkMinArcher && atkarcher <= AtkMaxArcher && countdowntrySetAtkCharacter != zero));
+
+                            if (countdowntrySetAtkCharacter != zero)
+                            {
+                                countdowntrySetDamageReductionCharacter = 3;
+                                errorSetValueCharacter = false;
+                                Console.WriteLine(MSGSetDamageReductionArcher);
+                                do
+                                {
+                                    if (errorSetValueCharacter)
+                                    {
+                                        Console.WriteLine("");
+                                        Console.WriteLine(MSGSetError);
+                                        Console.WriteLine(MSGSetDamageReductionArcher);
+                                        Console.WriteLine("");
+                                    }
+                                    damagereductionarcher = Convert.ToInt32(Console.ReadLine());
+                                    errorSetValueCharacter = true;
+                                    countdowntrySetDamageReductionCharacter--;
+
+                                } while (!(damagereductionarcher >= DamageReductionMinArcher && damagereductionarcher <= DamageReductionMaxArcher && countdowntrySetDamageReductionCharacter != zero));
+                            }
                         }
                         countdowntryCreateCharacter--;
-
                     } while (false);
                 } else
                 {
