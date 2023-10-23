@@ -70,20 +70,18 @@ namespace GameProject
             int hpmonster = 0, atkmonster = 0, damagereductionmonster = 0;
 
             /* Error variables */
-            bool errorstartgame = false, game = true, errorSetValueArcher = false;
+            bool errorstartgame = false, game = true, errorSetValueCharacter = false;
 
             /* Countsdown */
             int countdowntrystartgame = 3;
 
-            int countdowntryCreateCharacters = 3;
+            int countdowntryCreateCharacter = 3;
 
-            int countdowntryCreateArcher = 3, countdowntryCreateBarbarian = 3, countdowntryCreateMagician = 3, countdowntryCreateDruid = 3, countdowntryCreateMonster = 3;
+            int countdowntrySetHpCharacter = 3;
 
-            int countdowntrySetValuesArcher = 3, countdowntrySetHpBarbarian = 3, countdowntrySetHpMagician = 3, countdowntrySetHpDruid = 3, countdowntrySetHpMonster = 3;
+            int countdowntrySetAtkCharacter = 3;
 
-            int countdowntrySetAtkBarbarian = 3, countdowntrySetAtkMagician = 3, countdowntrySetAtkDruid = 3, countdowntrySetAtkMonster = 3;
-
-            int countdowntrySetDamageReductionBarbarian = 3, countdowntrySetDamageReductionMagician = 3, countdowntrySetDamageReductionDruid = 3, countdowntrySetDamageReductionMonster = 3;
+            int countdowntrySetDamageReductionCharacter = 3;
 
             /* Altres variables */
             int startgame;
@@ -115,54 +113,64 @@ namespace GameProject
 
                 if (startgame == 1 && countdowntrystartgame != 0)
                 {
-                    countdowntryCreateCharacters = 3;
                     Console.WriteLine("");
                     Console.WriteLine(MSGStartGame);
                     Console.WriteLine("");
                     
                     /* Creacio personatges */
 
-                    countdowntryCreateArcher = 3; countdowntrySetValuesArcher = 3;  
+                    countdowntryCreateCharacter = 3;
+                    countdowntrySetHpCharacter = 3;
+                    countdowntrySetAtkCharacter = 3; 
+                    countdowntrySetDamageReductionCharacter = 3;  
                         
-                    countdowntryCreateBarbarian = 3; countdowntrySetHpBarbarian = 3; countdowntrySetAtkBarbarian = 3; countdowntrySetDamageReductionBarbarian = 3;  
-                        
-                    countdowntryCreateMagician = 3; countdowntrySetHpMagician = 3; countdowntrySetAtkMagician = 3; countdowntrySetDamageReductionMagician = 3;  
-                        
-                    countdowntryCreateDruid = 3; countdowntrySetHpDruid = 3; countdowntrySetAtkDruid = 3; countdowntrySetDamageReductionDruid = 3;  
-                        
-                    countdowntryCreateMonster = 3; countdowntrySetHpMonster = 3; countdowntrySetAtkMonster = 3; countdowntrySetDamageReductionMonster = 3; 
-
                     /* Demanar dades usuari Archer */
                     do
                     {
-                        errorSetValueArcher = false;
+                        errorSetValueCharacter = false;
                         Console.WriteLine(MSGCreateArcher);
                         Console.WriteLine(MSGRequieredValues);
                         Console.WriteLine(MSGSetHpArcher);
-                        Console.WriteLine(MSGSetAtkArcher);
-                        Console.WriteLine(MSGSetDamageReductionArcher);
                         Console.WriteLine("");
                         do
                         {
-                            if (errorSetValueArcher) 
+                            if (errorSetValueCharacter) 
                             {
                                 Console.WriteLine("");
                                 Console.WriteLine(MSGSetError);
                                 Console.WriteLine(MSGRequieredValues);
                                 Console.WriteLine(MSGSetHpArcher);
-                                Console.WriteLine(MSGSetAtkArcher);
-                                Console.WriteLine(MSGSetDamageReductionArcher);
                                 Console.WriteLine("");
                             }
                             hparcher = Convert.ToInt32(Console.ReadLine());
                             atkarcher = Convert.ToInt32(Console.ReadLine());
                             damagereductionarcher = Convert.ToInt32(Console.ReadLine());
-                            errorSetValueArcher = true;
-                            countdowntrySetValuesArcher--;
-                        } while (!((hparcher >= 1500 && hparcher <= 2000) && (atkarcher >= 180 && atkarcher <= 300) && (damagereductionarcher >= 25 && damagereductionarcher <= 40) && (countdowntrySetValuesArcher != 0)));
+                            errorSetValueCharacter = true;
+                            countdowntrySetHpCharacter--;
 
+                        } while (!(hparcher >= 1500 && hparcher <= 2000 && countdowntrySetHpCharacter != 0));
+                        /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                        if (countdowntrySetHpCharacter != 0)
+                        {
+                            do
+                            {
+                                if (errorSetValueCharacter)
+                                {
+                                    Console.WriteLine("");
+                                    Console.WriteLine(MSGSetError);
+                                    Console.WriteLine(MSGRequieredValues);
+                                    Console.WriteLine(MSGSetHpArcher);
+                                    Console.WriteLine("");
+                                }
+                                hparcher = Convert.ToInt32(Console.ReadLine());
+                                atkarcher = Convert.ToInt32(Console.ReadLine());
+                                damagereductionarcher = Convert.ToInt32(Console.ReadLine());
+                                errorSetValueCharacter = true;
+                                countdowntrySetHpCharacter--;
 
-
+                            } while (!((hparcher >= 1500 && hparcher <= 2000) && (atkarcher >= 180 && atkarcher <= 300) && (damagereductionarcher >= 25 && damagereductionarcher <= 40) && (countdowntrySetHpCharacter != 0)));
+                        }
+                        countdowntryCreateCharacter--;
 
                     } while (false);
                 } else
