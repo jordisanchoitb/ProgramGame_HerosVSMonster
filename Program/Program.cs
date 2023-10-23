@@ -23,33 +23,33 @@ namespace GameProject
             /* MSG Creacion heroes i monstruo + MSG Introducir valores heroes i mosntruo */
             const string MSGStartGame = "Perfecte! Comencem a crear presonatges:";
 
-            const string MSGCreateArcher = "Primer personatge: Arquera. Introdueix els valors requerits:";
+            const string MSGCreateArcher = "Primer personatge: Arquera. ";
             const string MSGSetHpArcher = "Vida [1500-2000]: ";
             const string MSGSetAtkArcher = "Atac [180-300]: ";
             const string MSGSetDamageReductionArcher = "Reducció de dany (valor percentual) [25-40] %: ";
             
-            const string MSGCreateBarbarian = "Primer personatge: Arquera. Introdueix els valors requerits:";
+            const string MSGCreateBarbarian = "Primer personatge: Bàrbar. ";
             const string MSGSetHpBarbarian = "Vida [3000-3750]: ";
             const string MSGSetAtkBarbarian = "Atac [150-250]: ";
             const string MSGSetDamageReductionBarbarian = "Reducció de dany (valor percentual) [35-45] %: ";
             
-            const string MSGCreateMagician = "Primer personatge: Arquera. Introdueix els valors requerits:";
+            const string MSGCreateMagician = "Primer personatge: Maga. ";
             const string MSGSetHpMagician = "Vida [1000-1500]: ";
             const string MSGSetAtkMagician = "Atac [300-350]: ";
             const string MSGSetDamageReductionMagician = "Reducció de dany (valor percentual) [20-35] %: ";
             
-            const string MSGCreateDruid = "Primer personatge: Arquera. Introdueix els valors requerits:";
+            const string MSGCreateDruid = "Primer personatge: Druida. ";
             const string MSGSetHpDruid = "Vida [2000-2500]: ";
             const string MSGSetAtkDruid = "Atac [70-120]: ";
             const string MSGSetDamageReductionDruid = "Reducció de dany (valor percentual) [25-40] %: ";
             
-            const string MSGCreateMonster = "Ara toca el Monstre. Introdueix els valors requerits:";
+            const string MSGCreateMonster = "Ara toca el Monstre. ";
             const string MSGSetHpMonster = "Vida [9000-12000]: ";
             const string MSGSetAtkMonster = "Atac [250-400]: ";
             const string MSGSetDamageReductionMonster = "Reducció de dany (valor percentual) [20-30] %: ";
-            
-            
 
+            const string MSGRequieredValues = "Introdueix els valors requerits:";
+            
             const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
 
 
@@ -69,23 +69,24 @@ namespace GameProject
             /* Declaracio variables monstruo*/
             int hpmonster = 0, atkmonster = 0, damagereductionmonster = 0;
 
-            /* Altres variables */
-            int startgame;
-            bool errorstartgame = false, game = true;
+            /* Error variables */
+            bool errorstartgame = false, game = true, errorSetValueArcher = false;
 
             /* Countsdown */
             int countdowntrystartgame = 3;
 
             int countdowntryCreateCharacters = 3;
 
-            int countdowntryCreateArhcer = 3, countdowntryCreateBarbarian = 3, countdowntryCreateMagician = 3, countdowntryCreateDruid = 3, countdowntryCreateMonster = 3;
+            int countdowntryCreateArcher = 3, countdowntryCreateBarbarian = 3, countdowntryCreateMagician = 3, countdowntryCreateDruid = 3, countdowntryCreateMonster = 3;
 
-            int countdowntrySetHpArhcer = 3, countdowntrySetHpBarbarian = 3, countdowntrySetHpMagician = 3, countdowntrySetHpDruid = 3, countdowntrySetHpMonster = 3;
+            int countdowntrySetValuesArcher = 3, countdowntrySetHpBarbarian = 3, countdowntrySetHpMagician = 3, countdowntrySetHpDruid = 3, countdowntrySetHpMonster = 3;
 
-            int countdowntrySetAtkArhcer = 3, countdowntrySetAtkBarbarian = 3, countdowntrySetAtkMagician = 3, countdowntrySetAtkDruid = 3, countdowntrySetAtkMonster = 3;
+            int countdowntrySetAtkBarbarian = 3, countdowntrySetAtkMagician = 3, countdowntrySetAtkDruid = 3, countdowntrySetAtkMonster = 3;
 
-            int countdowntrySetDamageReductionArhcer = 3, countdowntrySetDamageReductionBarbarian = 3, countdowntrySetDamageReductionMagician = 3, countdowntrySetDamageReductionDruid = 3, countdowntrySetDamageReductionMonster = 3;
+            int countdowntrySetDamageReductionBarbarian = 3, countdowntrySetDamageReductionMagician = 3, countdowntrySetDamageReductionDruid = 3, countdowntrySetDamageReductionMonster = 3;
 
+            /* Altres variables */
+            int startgame;
 
 
             Console.WriteLine(MSGWelcome);
@@ -120,28 +121,50 @@ namespace GameProject
                     Console.WriteLine("");
                     
                     /* Creacio personatges */
+
+                    countdowntryCreateArcher = 3; countdowntrySetValuesArcher = 3;  
+                        
+                    countdowntryCreateBarbarian = 3; countdowntrySetHpBarbarian = 3; countdowntrySetAtkBarbarian = 3; countdowntrySetDamageReductionBarbarian = 3;  
+                        
+                    countdowntryCreateMagician = 3; countdowntrySetHpMagician = 3; countdowntrySetAtkMagician = 3; countdowntrySetDamageReductionMagician = 3;  
+                        
+                    countdowntryCreateDruid = 3; countdowntrySetHpDruid = 3; countdowntrySetAtkDruid = 3; countdowntrySetDamageReductionDruid = 3;  
+                        
+                    countdowntryCreateMonster = 3; countdowntrySetHpMonster = 3; countdowntrySetAtkMonster = 3; countdowntrySetDamageReductionMonster = 3; 
+
+                    /* Demanar dades usuari Archer */
                     do
                     {
-                        countdowntryCreateArhcer = 3; countdowntrySetHpArhcer = 3; countdowntrySetAtkArhcer = 3; countdowntrySetDamageReductionArhcer = 3;  
-                        
-                        countdowntryCreateBarbarian = 3; countdowntrySetHpBarbarian = 3; countdowntrySetAtkBarbarian = 3; countdowntrySetDamageReductionBarbarian = 3;  
-                        
-                        countdowntryCreateMagician = 3; countdowntrySetHpMagician = 3; countdowntrySetAtkMagician = 3; countdowntrySetDamageReductionMagician = 3;  
-                        
-                        countdowntryCreateDruid = 3; countdowntrySetHpDruid = 3; countdowntrySetAtkDruid = 3; countdowntrySetDamageReductionDruid = 3;  
-                        
-                        countdowntryCreateMonster = 3; countdowntrySetHpMonster = 3; countdowntrySetAtkMonster = 3; countdowntrySetDamageReductionMonster = 3; 
-
-                        /* Demanar dades usuari Archer */
+                        errorSetValueArcher = false;
+                        Console.WriteLine(MSGCreateArcher);
+                        Console.WriteLine(MSGRequieredValues);
+                        Console.WriteLine(MSGSetHpArcher);
+                        Console.WriteLine(MSGSetAtkArcher);
+                        Console.WriteLine(MSGSetDamageReductionArcher);
+                        Console.WriteLine("");
                         do
                         {
-                            Console.WriteLine(MSGCreateArcher);
-                            
-                        } while (true);
+                            if (errorSetValueArcher) 
+                            {
+                                Console.WriteLine("");
+                                Console.WriteLine(MSGSetError);
+                                Console.WriteLine(MSGRequieredValues);
+                                Console.WriteLine(MSGSetHpArcher);
+                                Console.WriteLine(MSGSetAtkArcher);
+                                Console.WriteLine(MSGSetDamageReductionArcher);
+                                Console.WriteLine("");
+                            }
+                            hparcher = Convert.ToInt32(Console.ReadLine());
+                            atkarcher = Convert.ToInt32(Console.ReadLine());
+                            damagereductionarcher = Convert.ToInt32(Console.ReadLine());
+                            errorSetValueArcher = true;
+                            countdowntrySetValuesArcher--;
+                        } while (!((hparcher >= 1500 && hparcher <= 2000) && (atkarcher >= 180 && atkarcher <= 300) && (damagereductionarcher >= 25 && damagereductionarcher <= 40) && (countdowntrySetValuesArcher != 0)));
 
 
-                        countdowntryCreateCharacters--;
-                    } while ();
+
+
+                    } while (false);
                 } else
                 {
                     game = false;
