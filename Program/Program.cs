@@ -6,8 +6,6 @@
  *
  */
 
-using System;
-
 namespace GameProject
 {
     public class SanchoJordiCode
@@ -22,25 +20,25 @@ namespace GameProject
             const string MSGPressToContinue = "Toca una tecla para continuar.";
 
             /* Constantes valores Max i Min de los atributos */
-            const int HpMinArcher = 1500, HpMaxArcher = 2000;
-            const int AtkMinArcher = 180, AtkMaxArcher = 300;
-            const int DamageReductionMinArcher = 25, DamageReductionMaxArcher = 40;
+            const double HpMinArcher = 1500, HpMaxArcher = 2000;
+            const double AtkMinArcher = 180, AtkMaxArcher = 300;
+            const double DamageReductionMinArcher = 25, DamageReductionMaxArcher = 40;
 
-            const int HpMinBarbarian = 3000, HpMaxBarbarian = 3750;
-            const int AtkMinBarbarian = 150, AtkMaxBarbarian = 250;
-            const int DamageReductionMinBarbarian = 35, DamageReductionMaxBarbarian = 45;
+            const double HpMinBarbarian = 3000, HpMaxBarbarian = 3750;
+            const double AtkMinBarbarian = 150, AtkMaxBarbarian = 250;
+            const double DamageReductionMinBarbarian = 35, DamageReductionMaxBarbarian = 45;
 
-            const int HpMinMagician = 1000, HpMaxMagician = 1500;
-            const int AtkMinMagician = 300, AtkMaxMagician = 350;
-            const int DamageReductionMinMagician = 20, DamageReductionMaxMagician = 35;
+            const double HpMinMagician = 1000, HpMaxMagician = 1500;
+            const double AtkMinMagician = 300, AtkMaxMagician = 350;
+            const double DamageReductionMinMagician = 20, DamageReductionMaxMagician = 35;
 
-            const int HpMinDruid = 2000, HpMaxDruid = 2500;
-            const int AtkMinDruid = 70, AtkMaxDruid = 120;
-            const int DamageReductionMinDruid = 25, DamageReductionMaxDruid = 40;
+            const double HpMinDruid = 2000, HpMaxDruid = 2500;
+            const double AtkMinDruid = 70, AtkMaxDruid = 120;
+            const double DamageReductionMinDruid = 25, DamageReductionMaxDruid = 40;
 
-            const int HpMinMonster = 9000, HpMaxMonster = 12000;
-            const int AtkMinMonster = 250, AtkMaxMonster = 400;
-            const int DamageReductionMinMonster = 20, DamageReductionMaxMonster = 30;
+            const double HpMinMonster = 9000, HpMaxMonster = 12000;
+            const double AtkMinMonster = 250, AtkMaxMonster = 400;
+            const double DamageReductionMinMonster = 20, DamageReductionMaxMonster = 30;
 
 
             /* MSG Creacion heroes i monstruo + MSG Introducir valores heroes i mosntruo */
@@ -77,18 +75,57 @@ namespace GameProject
             const string MSGRequieredValues = "Introdueix els valors requerits:";
 
             const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
-            
+
             /* MSG Accions Heroes i MSG Monstre */
             const string MSGActionArcher = "Arquera. Selecciona l’acció:";
+            const string MSGActionArcherAtk = "Arquera ataca a Monstre amb 180 de dany. El Monstre es defensa i rep només 135 de dany. Vida restant del Monstre: 8865";
+            const string MSGActionArcherProtect = "L'Arquera es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
+            const string MSGActionArcherEspecialHability = "Arquera. Selecciona l’acció:";
+
+            const string MSGDamage = " de dany.";
+
+            const string MSGAtkArcher = "L'Arquera ataca a Monstre amb ";
+            const string MSGAtkBarbarian = "El Bàrbar ataca a Monstre amb ";
+            const string MSGAtkMagician = "La Maga ataca a Monstre amb ";
+            const string MSGAtkDruid = "El Druida ataca a Monstre amb ";
+
+            const string MSGAtkMonsterTooArcher = " El Monstre ataca a l’Arquera ";
+            const string MSGAtkMonsterTooBarbarian = " El Monstre ataca al Bàrbar ";
+            const string MSGAtkMonsterTooMagician = " El Monstre ataca a la Maga ";
+            const string MSGAtkMonsterTooDruid = " El Monstre ataca al Druida ";
+            
+            const string MSGEspecialHabilityArcher = "L'Arquera activa la seva habilitat especial i noqueja el monstre durant 2 torns (no pot atacar).";
+            const string MSGEspecialHabilityBarbarian = "Bàrbar activa la seva habilitat especial i durant 3 torns el valor de la seva reducció de dany serà del 100%.";
+            const string MSGEspecialHabilityMagician = "La Maga activa la seva habilitat especial, dispara una bola de foc que fa 3 cops el seu atac.";
+            const string MSGEspecialHabilityDruid = "El Druida activa la seva habilitat especial, cura la vida de tots els herois 500 punts de vida.";
+
+            const string MSGProtectArcher = " L’Arquera es defensa i rep només ";
+            const string MSGProtectBarbarian = " El Bàrbar es defensa i rep només ";
+            const string MSGProtectMagician = " La Maga es defensa i rep només ";
+            const string MSGProtectDruid = " El Druida es defensa i rep només ";
+            const string MSGProtectMonster = " El Monstre es defensa i rep només ";
+
+
+            const string MSGHpArcher = " Vida restant de l’Arquera: ";
+            const string MSGHpBarbarian = " Vida restant del Bàrbar: ";
+            const string MSGHpMagician = " Vida restant de la Maga: ";
+            const string MSGHpDruid = " Vida restant del Druida: ";
+            const string MSGHpMonster = " Vida restant del Monstre: ";
+
+            const string MSGMonsterAtkAll = "El Monstre ataca a tots els herois:";
+
             const string MSGActionBarbarian = "Bàrbar. Selecciona l’acció:";
             const string MSGActionMagician = "Maga. Selecciona l’acció:";
             const string MSGActionDruid = "Druida. Selecciona l’acció:";
             const string MSGActionMonster = "El Monstre ataca a tots els herois:";
             const string MSGActionAtk = "1. Atacar";
             const string MSGActionProtect = "2. Protegir-se";
-            const string MSGActionEspecialHability = "3. Habilitat especial";
+            const string MSGActionEspecialHability = "3. Habilitat especial ";
             const string MSGErrorAction = "El valor introduit no es correcta. Torna a provar.";
             const string MSGActionCountDownEqual0 = "El valor introduit no es correcta. S’han acabat els intents. Adéu";
+            const string MSGCooldown = "Cooldown: ";
+            const string MSGErrorCooldown = "No pots utilitzar l'acció 3 ja que esta amb cooldown, fes una altre acció. ";
+
 
             const string MSGWinHeros = "El monstre a mort, han guanyat el heroes!!!!";
             const string MSGWinMonster = "Tots els heroes han mort, ha guanyat el monstre.";
@@ -104,27 +141,29 @@ namespace GameProject
             const int zero = 0;
             const int one = 1;
             const int three = 3;
-
+            const int onehundred = 100;
 
 
             /* Declaracio variables heroes */
-            int hparcher = 0, atkarcher = 0, damagereductionarcher = 0, cooldownhabilityarcher = 5;
+            double hparcher = 0, atkarcher = 0, damagereductionarcher = 0, tmpdamagereductionarcher;
+            int cooldownhabilityarcher = 0, countdownhabilityarcher=2;
             bool specialhabilityarcher = true;
 
-            int hpbarbarian = 0, atkbarbarian = 0, damagereductionbarbarian = 0, cooldownhabilitybarbarian = 5;
+            double hpbarbarian = 0, atkbarbarian = 0, damagereductionbarbarian = 0, tmpdamagereductionbarbarian;
+            int cooldownhabilitybarbarian = 0, countdownhabilitybarbarian = 3;
             bool specialhabilitybarbarian = true;
 
-            int hpmagician = 0, atkmagician = 0, damagereductionmagician = 0, cooldownhabilitymagician = 5;
-            bool specialhabilitymagician = true;
+            double hpmagician = 0, atkmagician = 0, damagereductionmagician = 0, tmpdamagereductionmagician;
+            int cooldownhabilitymagician = 0;
 
-            int hpdruid = 0, atkdruid = 0, damagereductiondruid = 0, cooldownhabilitydruid = 5;
-            bool specialhabilitydruid = true;
+            double hpdruid = 0, atkdruid = 0, damagereductiondruid = 0, tmpdamagereductiondruid; 
+            int cooldownhabilitydruid = 0;
 
             /* Declaracio variables monstruo*/
-            int hpmonster = 0, atkmonster = 0, damagereductionmonster = 0;
+            double hpmonster = 0, atkmonster = 0, damagereductionmonster = 0;
 
             /* Error variables */
-            bool errorstartgame = false, game = true, errorSetValueCharacter = false, errorActionGame = false;
+            bool errorstartgame = false, game = true, errorSetValueCharacter = false, errorActionGame = false, errorActionCooldown3 = false;
 
             /* Countsdown */
             int countdowntrystartgame = 3;
@@ -140,7 +179,7 @@ namespace GameProject
             int countdowntryAction = 3;
 
             /* Altres variables */
-            int startgame, battleturns, useraction;
+            int startgame, battleturns, useraction = 0;
 
 
             Console.WriteLine(MSGWelcome);
@@ -194,7 +233,7 @@ namespace GameProject
                                 Console.WriteLine(MSGSetError);
                                 Console.Write(MSGSetHpArcher);
                             }
-                            hparcher = Convert.ToInt32(Console.ReadLine());
+                            hparcher = Convert.ToDouble(Console.ReadLine());
                             errorSetValueCharacter = true;
                             countdowntrySetHpCharacter--;
 
@@ -215,7 +254,7 @@ namespace GameProject
                                     Console.WriteLine(MSGSetError);
                                     Console.Write(MSGSetAtkArcher);
                                 }
-                                atkarcher = Convert.ToInt32(Console.ReadLine());
+                                atkarcher = Convert.ToDouble(Console.ReadLine());
                                 errorSetValueCharacter = true;
                                 countdowntrySetAtkCharacter--;
 
@@ -234,7 +273,7 @@ namespace GameProject
                                         Console.WriteLine(MSGSetError);
                                         Console.Write(MSGSetDamageReductionArcher);
                                     }
-                                    damagereductionarcher = Convert.ToInt32(Console.ReadLine());
+                                    damagereductionarcher = Convert.ToDouble(Console.ReadLine());
                                     errorSetValueCharacter = true;
                                     countdowntrySetDamageReductionCharacter--;
 
@@ -265,7 +304,7 @@ namespace GameProject
                                     Console.WriteLine(MSGSetError);
                                     Console.Write(MSGSetHpBarbarian);
                                 }
-                                hpbarbarian = Convert.ToInt32(Console.ReadLine());
+                                hpbarbarian = Convert.ToDouble(Console.ReadLine());
                                 errorSetValueCharacter = true;
                                 countdowntrySetHpCharacter--;
 
@@ -286,7 +325,7 @@ namespace GameProject
                                         Console.WriteLine(MSGSetError);
                                         Console.Write(MSGSetAtkBarbarian);
                                     }
-                                    atkbarbarian = Convert.ToInt32(Console.ReadLine());
+                                    atkbarbarian = Convert.ToDouble(Console.ReadLine());
                                     errorSetValueCharacter = true;
                                     countdowntrySetAtkCharacter--;
 
@@ -305,7 +344,7 @@ namespace GameProject
                                             Console.WriteLine(MSGSetError);
                                             Console.Write(MSGSetDamageReductionBarbarian);
                                         }
-                                        damagereductionbarbarian = Convert.ToInt32(Console.ReadLine());
+                                        damagereductionbarbarian = Convert.ToDouble(Console.ReadLine());
                                         errorSetValueCharacter = true;
                                         countdowntrySetDamageReductionCharacter--;
 
@@ -315,7 +354,7 @@ namespace GameProject
                             countdowntryCreateCharacter--;
                         } while (!((hpbarbarian >= HpMinBarbarian && hpbarbarian <= HpMaxBarbarian) && (atkbarbarian >= AtkMinBarbarian && atkbarbarian <= AtkMaxBarbarian) && (damagereductionbarbarian >= DamageReductionMinBarbarian && damagereductionbarbarian <= DamageReductionMaxBarbarian) && (countdowntryCreateCharacter != zero)));
                         /* Creacio de heroe maga si el barbar ha sigut fet en menos de 3 intents */
-                        if  (countdowntrySetHpCharacter != zero) 
+                        if (countdowntrySetHpCharacter != zero)
                         {
                             countdowntryCreateCharacter = three;
                             /* Demanar dades heroe maga */
@@ -335,7 +374,7 @@ namespace GameProject
                                         Console.WriteLine(MSGSetError);
                                         Console.Write(MSGSetHpMagician);
                                     }
-                                    hpmagician = Convert.ToInt32(Console.ReadLine());
+                                    hpmagician = Convert.ToDouble(Console.ReadLine());
                                     errorSetValueCharacter = true;
                                     countdowntrySetHpCharacter--;
 
@@ -356,7 +395,7 @@ namespace GameProject
                                             Console.WriteLine(MSGSetError);
                                             Console.Write(MSGSetAtkMagician);
                                         }
-                                        atkmagician = Convert.ToInt32(Console.ReadLine());
+                                        atkmagician = Convert.ToDouble(Console.ReadLine());
                                         errorSetValueCharacter = true;
                                         countdowntrySetAtkCharacter--;
 
@@ -375,7 +414,7 @@ namespace GameProject
                                                 Console.WriteLine(MSGSetError);
                                                 Console.Write(MSGSetDamageReductionMagician);
                                             }
-                                            damagereductionmagician = Convert.ToInt32(Console.ReadLine());
+                                            damagereductionmagician = Convert.ToDouble(Console.ReadLine());
                                             errorSetValueCharacter = true;
                                             countdowntrySetDamageReductionCharacter--;
 
@@ -385,7 +424,7 @@ namespace GameProject
                                 countdowntryCreateCharacter--;
                             } while (!((hpmagician >= HpMinMagician && hpmagician <= HpMaxMagician) && (atkmagician >= AtkMinMagician && atkmagician <= AtkMaxMagician) && (damagereductionmagician >= DamageReductionMinMagician && damagereductionmagician <= DamageReductionMaxMagician) && (countdowntryCreateCharacter != zero)));
                             /* Creacio Druida mateixa condicio d'adalt */
-                            if (countdowntryCreateCharacter != zero) 
+                            if (countdowntryCreateCharacter != zero)
                             {
                                 countdowntryCreateCharacter = three;
                                 /* Demanar dades heroe druida */
@@ -405,7 +444,7 @@ namespace GameProject
                                             Console.WriteLine(MSGSetError);
                                             Console.Write(MSGSetHpDruid);
                                         }
-                                        hpdruid = Convert.ToInt32(Console.ReadLine());
+                                        hpdruid = Convert.ToDouble(Console.ReadLine());
                                         errorSetValueCharacter = true;
                                         countdowntrySetHpCharacter--;
 
@@ -426,7 +465,7 @@ namespace GameProject
                                                 Console.WriteLine(MSGSetError);
                                                 Console.Write(MSGSetAtkDruid);
                                             }
-                                            atkdruid = Convert.ToInt32(Console.ReadLine());
+                                            atkdruid = Convert.ToDouble(Console.ReadLine());
                                             errorSetValueCharacter = true;
                                             countdowntrySetAtkCharacter--;
 
@@ -445,7 +484,7 @@ namespace GameProject
                                                     Console.WriteLine(MSGSetError);
                                                     Console.Write(MSGSetDamageReductionDruid);
                                                 }
-                                                damagereductiondruid = Convert.ToInt32(Console.ReadLine());
+                                                damagereductiondruid = Convert.ToDouble(Console.ReadLine());
                                                 errorSetValueCharacter = true;
                                                 countdowntrySetDamageReductionCharacter--;
 
@@ -475,7 +514,7 @@ namespace GameProject
                                                 Console.WriteLine(MSGSetError);
                                                 Console.Write(MSGSetHpMonster);
                                             }
-                                            hpmonster = Convert.ToInt32(Console.ReadLine());
+                                            hpmonster = Convert.ToDouble(Console.ReadLine());
                                             errorSetValueCharacter = true;
                                             countdowntrySetHpCharacter--;
 
@@ -496,7 +535,7 @@ namespace GameProject
                                                     Console.WriteLine(MSGSetError);
                                                     Console.Write(MSGSetAtkMonster);
                                                 }
-                                                atkmonster = Convert.ToInt32(Console.ReadLine());
+                                                atkmonster = Convert.ToDouble(Console.ReadLine());
                                                 errorSetValueCharacter = true;
                                                 countdowntrySetAtkCharacter--;
 
@@ -515,7 +554,7 @@ namespace GameProject
                                                         Console.WriteLine(MSGSetError);
                                                         Console.Write(MSGSetDamageReductionMonster);
                                                     }
-                                                    damagereductionmonster = Convert.ToInt32(Console.ReadLine());
+                                                    damagereductionmonster = Convert.ToDouble(Console.ReadLine());
                                                     errorSetValueCharacter = true;
                                                     countdowntrySetDamageReductionCharacter--;
 
@@ -528,6 +567,11 @@ namespace GameProject
                                     if (countdowntryCreateCharacter != zero)
                                     {
                                         battleturns = one;
+                                        tmpdamagereductionarcher = damagereductionarcher;
+                                        tmpdamagereductionbarbarian = damagereductionbarbarian;
+                                        tmpdamagereductionmagician = damagereductionmagician;
+                                        tmpdamagereductiondruid = damagereductiondruid;
+
                                         Console.WriteLine("");
                                         Console.WriteLine("");
                                         Console.WriteLine(MSGStartBattle);
@@ -536,16 +580,24 @@ namespace GameProject
                                         while (!(hparcher <= zero && hpbarbarian <= zero && hpdruid <= zero && hpmagician <= zero || hpmonster <= zero) && countdowntryAction != zero)
                                         {
                                             Console.WriteLine("");
-                                            Console.WriteLine(MSGTurn+battleturns+MSGTwoPoints);
+                                            Console.WriteLine(MSGTurn + battleturns + MSGTwoPoints);
                                             Console.WriteLine("");
 
                                             if (hparcher > 0)
                                             {
                                                 countdowntryAction = three;
                                                 errorActionGame = false;
+                                                errorActionCooldown3 = false;
                                                 do
                                                 {
-                                                    if (errorActionGame)
+                                                    if (useraction == 3 && cooldownhabilityarcher >= 1 && cooldownhabilityarcher <= 5 && errorActionCooldown3)
+                                                    {
+                                                        Console.WriteLine("");
+                                                        Console.WriteLine(MSGErrorCooldown);
+                                                        Console.WriteLine("");
+
+                                                    }
+                                                    else if (errorActionGame)
                                                     {
                                                         Console.WriteLine("");
                                                         Console.WriteLine(MSGErrorAction);
@@ -554,11 +606,71 @@ namespace GameProject
                                                     Console.WriteLine(MSGActionArcher);
                                                     Console.WriteLine(MSGActionAtk);
                                                     Console.WriteLine(MSGActionProtect);
-                                                    Console.WriteLine(MSGActionEspecialHability);
+                                                    if (cooldownhabilityarcher == 0)
+                                                    {
+                                                        Console.WriteLine(MSGActionEspecialHability);
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(MSGActionEspecialHability + MSGCooldown + cooldownhabilityarcher);
+                                                    }
                                                     useraction = Convert.ToInt32(Console.ReadLine());
                                                     errorActionGame = true;
+                                                    errorActionCooldown3 = true;
                                                     countdowntryAction--;
-                                                } while (useraction != actionatk && useraction != actionprotection && useraction != actionespecialhability && countdowntryAction != zero);
+                                                } while (!(useraction >= 1 && useraction <= 3) || (useraction == 3 && cooldownhabilityarcher != 0) && countdowntryAction != zero);
+                                                if (useraction == actionatk)
+                                                {
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine(MSGAtkArcher+atkarcher+MSGDamage+MSGProtectMonster+(atkarcher-((damagereductionmonster / onehundred) * atkarcher))+MSGDamage+MSGHpMonster+(hpmonster - (atkarcher - ((damagereductionmonster / onehundred) * atkarcher))));
+                                                    Console.WriteLine("");
+                                                    hpmonster -= (atkarcher - ((damagereductionmonster / onehundred) * atkarcher));
+
+                                                    if (cooldownhabilityarcher > 0)
+                                                    {
+                                                        cooldownhabilityarcher--;
+                                                    }
+                                                }
+                                                else if (useraction == actionprotection)
+                                                {
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine(MSGActionProtect);
+                                                    Console.WriteLine("");
+
+                                                    if (cooldownhabilityarcher > 0)
+                                                    {
+                                                        cooldownhabilityarcher--;
+                                                    }
+                                                }
+                                                else if (useraction == actionespecialhability && cooldownhabilityarcher == 0)
+                                                {
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine(MSGActionEspecialHability);
+                                                    Console.WriteLine("");
+                                                    cooldownhabilityarcher = 5;
+                                                }
+                                            }
+
+                                            /* Comprova si hi ha algun heroe que a utilitzat la 2 accio de defensarse */
+
+                                            if (damagereductionarcher != tmpdamagereductionarcher)
+                                            {
+                                                damagereductionarcher -= tmpdamagereductionarcher;
+                                            }
+
+                                            if (damagereductionbarbarian != tmpdamagereductionbarbarian)
+                                            {
+                                                damagereductionbarbarian -= tmpdamagereductionbarbarian;
+                                            }
+
+                                            if (damagereductionmagician != tmpdamagereductionmagician)
+                                            {
+                                                damagereductionmagician -= tmpdamagereductionmagician;
+                                            }
+
+                                            if (damagereductiondruid != tmpdamagereductiondruid)
+                                            {
+                                                damagereductiondruid -= tmpdamagereductiondruid;
                                             }
 
 
@@ -572,7 +684,8 @@ namespace GameProject
                                             Console.WriteLine("");
                                             Console.WriteLine(MSGPressToContinue);
                                             Console.ReadKey();
-                                        } else if (hpmonster <= zero)
+                                        }
+                                        else if (hpmonster <= zero)
                                         {
                                             Console.WriteLine("");
                                             Console.WriteLine(MSGWinMonster);
@@ -580,7 +693,8 @@ namespace GameProject
                                             Console.WriteLine("");
                                             Console.WriteLine(MSGPressToContinue);
                                             Console.ReadKey();
-                                        } else
+                                        }
+                                        else
                                         {
                                             Console.WriteLine("");
                                             Console.WriteLine(MSGWinHeros);
