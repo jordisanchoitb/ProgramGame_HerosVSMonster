@@ -77,8 +77,7 @@ namespace GameProject
             const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
 
             /* MSG Accions Heroes i MSG Monstre */
-            const string MSGActionArcher = "Arquera. Selecciona l’acció:";
-            const string MSGActionArcherAtk = "Arquera ataca a Monstre amb 180 de dany. El Monstre es defensa i rep només 135 de dany. Vida restant del Monstre: 8865";
+
             const string MSGActionArcherProtect = "L'Arquera es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
             const string MSGActionArcherEspecialHability = "Arquera. Selecciona l’acció:";
 
@@ -94,16 +93,21 @@ namespace GameProject
             const string MSGAtkMonsterTooMagician = " El Monstre ataca a la Maga ";
             const string MSGAtkMonsterTooDruid = " El Monstre ataca al Druida ";
             
-            const string MSGEspecialHabilityArcher = "L'Arquera activa la seva habilitat especial i noqueja el monstre durant 2 torns (no pot atacar).";
-            const string MSGEspecialHabilityBarbarian = "Bàrbar activa la seva habilitat especial i durant 3 torns el valor de la seva reducció de dany serà del 100%.";
-            const string MSGEspecialHabilityMagician = "La Maga activa la seva habilitat especial, dispara una bola de foc que fa 3 cops el seu atac.";
-            const string MSGEspecialHabilityDruid = "El Druida activa la seva habilitat especial, cura la vida de tots els herois 500 punts de vida.";
+            const string MSGActionEspecialHabilityArcher = "L'Arquera activa la seva habilitat especial i noqueja el monstre durant 2 torns (no pot atacar).";
+            const string MSGActionEspecialHabilityBarbarian = "Bàrbar activa la seva habilitat especial i durant 3 torns el valor de la seva reducció de dany serà del 100%.";
+            const string MSGActionEspecialHabilityMagician = "La Maga activa la seva habilitat especial, dispara una bola de foc que fa 3 cops el seu atac.";
+            const string MSGActionEspecialHabilityDruid = "El Druida activa la seva habilitat especial, cura la vida de tots els herois 500 punts de vida.";
 
-            const string MSGProtectArcher = " L’Arquera es defensa i rep només ";
-            const string MSGProtectBarbarian = " El Bàrbar es defensa i rep només ";
-            const string MSGProtectMagician = " La Maga es defensa i rep només ";
-            const string MSGProtectDruid = " El Druida es defensa i rep només ";
-            const string MSGProtectMonster = " El Monstre es defensa i rep només ";
+            const string MSGReduccionDamageWhenAtkMonsterTooArcher = " L’Arquera es defensa i rep només ";
+            const string MSGReduccionDamageWhenAtkMonsterTooBarbarian = " El Bàrbar es defensa i rep només ";
+            const string MSGReduccionDamageWhenAtkMonsterTooMagician = " La Maga es defensa i rep només ";
+            const string MSGReduccionDamageWhenAtkMonsterTooDruid = " El Druida es defensa i rep només ";
+            const string MSGReduccionDamageWhenAtkHerosTooMonster = " El Monstre es defensa i rep només ";
+
+            const string MSGActionProtectArcher = "L'Arquera es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
+            const string MSGActionProtectnDamageBarbarian = "El Bàrbar es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
+            const string MSGActionProtectDamageMagician = "La Maga es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
+            const string MSGActionProtectDamageDruid = "El Druida es protegeix del monstre i duplica la seva reducció de dany pel pròxim atac.";
 
 
             const string MSGHpArcher = " Vida restant de l’Arquera: ";
@@ -114,6 +118,7 @@ namespace GameProject
 
             const string MSGMonsterAtkAll = "El Monstre ataca a tots els herois:";
 
+            const string MSGActionArcher = "Arquera. Selecciona l’acció:";
             const string MSGActionBarbarian = "Bàrbar. Selecciona l’acció:";
             const string MSGActionMagician = "Maga. Selecciona l’acció:";
             const string MSGActionDruid = "Druida. Selecciona l’acció:";
@@ -622,7 +627,7 @@ namespace GameProject
                                                 if (useraction == actionatk)
                                                 {
                                                     Console.WriteLine("");
-                                                    Console.WriteLine(MSGAtkArcher+atkarcher+MSGDamage+MSGProtectMonster+(atkarcher-((damagereductionmonster / onehundred) * atkarcher))+MSGDamage+MSGHpMonster+(hpmonster - (atkarcher - ((damagereductionmonster / onehundred) * atkarcher))));
+                                                    Console.WriteLine(MSGAtkArcher + atkarcher + MSGDamage + MSGReduccionDamageWhenAtkHerosTooMonster + (atkarcher-((damagereductionmonster / onehundred) * atkarcher)) + MSGDamage + MSGHpMonster + (hpmonster - (atkarcher - ((damagereductionmonster / onehundred) * atkarcher))));
                                                     Console.WriteLine("");
                                                     hpmonster -= (atkarcher - ((damagereductionmonster / onehundred) * atkarcher));
 
@@ -634,8 +639,9 @@ namespace GameProject
                                                 else if (useraction == actionprotection)
                                                 {
                                                     Console.WriteLine("");
-                                                    Console.WriteLine(MSGActionProtect);
+                                                    Console.WriteLine(MSGActionProtectArcher);
                                                     Console.WriteLine("");
+                                                    damagereductionarcher += tmpdamagereductionarcher;
 
                                                     if (cooldownhabilityarcher > 0)
                                                     {
