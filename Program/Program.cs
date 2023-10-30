@@ -16,7 +16,7 @@ namespace GameProject
             const string MSGDoYouWant = "Que vols fer?";
             const string MSGDoYouWantError = "Introdueix un valor entre el 1 o el 2, Que vols fer?";
             const string MSGDoYouWantYes = "1. Jugar!";
-            const string MSGDoYouWantQuit = "2. Sortir";
+            const string MSGDoYouWantQuit = "0. Sortir";
             const string MSGPressToContinue = "Toca una tecla para continuar.";
 
             /* Constantes valores Max i Min de los atributos */
@@ -46,6 +46,8 @@ namespace GameProject
             const string MSGStartBattle = "Comença la batalla!";
             const string MSGTurn = "Torn ";
             const string MSGTwoPoints = ":";
+            const string MSGRequieredValues = "Introdueix els valors requerits:";
+            const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
 
             const string MSGCreateArcher = "Primer personatge: Arquera. ";
             const string MSGSetHpArcher = "Vida [1500-2000]: ";
@@ -72,9 +74,7 @@ namespace GameProject
             const string MSGSetAtkMonster = "Atac [250-400]: ";
             const string MSGSetDamageReductionMonster = "Reducció de dany (valor percentual) [20-30] %: ";
 
-            const string MSGRequieredValues = "Introdueix els valors requerits:";
 
-            const string MSGSetError = "Error, no has introduit un valor dins del rang especificat. Torna a posarlo: ";
 
             /* MSG Accions Heroes i MSG Monstre */
 
@@ -95,8 +95,8 @@ namespace GameProject
             const string MSGActionEspecialHabilityBarbarian = "Bàrbar activa la seva habilitat especial i durant 3 torns el valor de la seva reducció de dany serà del 100%.";
             const string MSGActionEspecialHabilityMagician = "La Maga activa la seva habilitat especial, dispara una bola de foc que fa 3 cops el seu atac.";
             const string MSGActionEspecialHabilityDruid = "El Druida activa la seva habilitat especial, cura la vida de tots els herois 500 punts de vida.";
-
             const string MSGActivatedEspecialHabilityBarbarian = "El Bàrbar te activa la seva habilitat especial i rep: ";
+
 
             const string MSGReduccionDamageWhenAtkMonsterTooArcher = "L’Arquera es defensa i rep només ";
             const string MSGReduccionDamageWhenAtkMonsterTooBarbarian = "El Bàrbar es defensa i rep només ";
@@ -152,7 +152,7 @@ namespace GameProject
             const int actionprotection = 2;
             const int actionespecialhability = 3;
             const int play = 1;
-            const int quit = 2;
+            const int quit = 0;
             const int zero = 0;
             const int one = 1;
             const int three = 3;
