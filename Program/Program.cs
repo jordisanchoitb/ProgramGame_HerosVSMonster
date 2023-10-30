@@ -163,18 +163,18 @@ namespace GameProject
             const int maxcooldown = 5;
 
             /* Declaracio variables heroes */
-            double hparcher = 0, atkarcher = 0, damagereductionarcher = 0, tmpdamagereductionarcher;
+            double hparcher = 0, atkarcher = 0, damagereductionarcher = 0, tmpdamagereductionarcher, tmphpmaxarcher;
             int cooldownhabilityarcher = 0;
             bool specialhabilityarcher = false;
 
-            double hpbarbarian = 0, atkbarbarian = 0, damagereductionbarbarian = 0, tmpdamagereductionbarbarian;
+            double hpbarbarian = 0, atkbarbarian = 0, damagereductionbarbarian = 0, tmpdamagereductionbarbarian, tmphpmaxbarbarian;
             int cooldownhabilitybarbarian = 0;
             bool specialhabilitybarbarian = false;
 
-            double hpmagician = 0, atkmagician = 0, damagereductionmagician = 0, tmpdamagereductionmagician;
+            double hpmagician = 0, atkmagician = 0, damagereductionmagician = 0, tmpdamagereductionmagician, tmphpmaxmagician;
             int cooldownhabilitymagician = 0;
 
-            double hpdruid = 0, atkdruid = 0, damagereductiondruid = 0, tmpdamagereductiondruid;
+            double hpdruid = 0, atkdruid = 0, damagereductiondruid = 0, tmpdamagereductiondruid, tmphpmaxdruid;
             int cooldownhabilitydruid = 0;
 
             /* Declaracio variables monstruo*/
@@ -643,6 +643,10 @@ namespace GameProject
                                         tmpdamagereductionbarbarian = damagereductionbarbarian;
                                         tmpdamagereductionmagician = damagereductionmagician;
                                         tmpdamagereductiondruid = damagereductiondruid;
+                                        tmphpmaxarcher = hparcher;
+                                        tmphpmaxbarbarian = hpbarbarian;
+                                        tmphpmaxmagician = hpmagician;
+                                        tmphpmaxdruid = hpdruid;
 
                                         Console.WriteLine("");
                                         Console.WriteLine("");
@@ -950,10 +954,20 @@ namespace GameProject
                                                     Console.WriteLine("");
                                                     Console.WriteLine(MSGActionEspecialHabilityDruid);
                                                     Console.WriteLine("");
+                                                    /* Abans de cura a qualsevol personatge comprova si esta veu aquell personatje y despres si
+                                                     quant cura si la seva vida actual + la curacio supera la vida maxima especificada per el usuari al principi */
                                                     if (hparcher > zero)
                                                     {
-                                                        Console.WriteLine(MSGHpArcher + (hparcher + healhabilitydruid));
-                                                        hparcher += healhabilitydruid;
+                                                        if (hparcher+healhabilitydruid > tmphpmaxarcher)
+                                                        {
+                                                            Console.WriteLine(MSGHpArcher + (tmphpmaxarcher));
+                                                            hparcher = tmphpmaxarcher;
+                                                        } else
+                                                        {
+                                                            Console.WriteLine(MSGHpArcher + (hparcher + healhabilitydruid));
+                                                            hparcher += healhabilitydruid;
+                                                        }
+                                                        
                                                     }
                                                     else
                                                     {
@@ -961,8 +975,15 @@ namespace GameProject
                                                     }
                                                     if (hpbarbarian > zero)
                                                     {
-                                                        Console.WriteLine(MSGHpBarbarian + (hpbarbarian + healhabilitydruid));
-                                                        hpbarbarian += healhabilitydruid;
+                                                        if (hpbarbarian+healhabilitydruid > tmphpmaxbarbarian)
+                                                        {
+                                                            Console.WriteLine(MSGHpBarbarian + (tmphpmaxbarbarian));
+                                                            hpbarbarian = tmphpmaxbarbarian;
+                                                        } else
+                                                        {
+                                                            Console.WriteLine(MSGHpBarbarian + (hpbarbarian + healhabilitydruid));
+                                                            hpbarbarian += healhabilitydruid;
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -970,8 +991,15 @@ namespace GameProject
                                                     }
                                                     if (hpmagician > zero)
                                                     {
-                                                        Console.WriteLine(MSGHpMagician + (hpmagician + healhabilitydruid));
-                                                        hpmagician += healhabilitydruid;
+                                                        if (hpmagician+healhabilitydruid > tmphpmaxmagician) 
+                                                        {
+                                                            Console.WriteLine(MSGHpMagician + (tmphpmaxmagician));
+                                                            hpmagician = tmphpmaxmagician;
+                                                        } else 
+                                                        {
+                                                            Console.WriteLine(MSGHpMagician + (hpmagician + healhabilitydruid));
+                                                            hpmagician += healhabilitydruid;
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -979,8 +1007,15 @@ namespace GameProject
                                                     }
                                                     if (hpdruid > zero)
                                                     {
-                                                        Console.WriteLine(MSGHpDruid + (hpdruid + healhabilitydruid));
-                                                        hpdruid += healhabilitydruid;
+                                                        if (hpdruid+healhabilitydruid > tmphpmaxdruid)
+                                                        {
+                                                            Console.WriteLine(MSGHpDruid + (tmphpmaxdruid));
+                                                            hpdruid = tmphpmaxdruid;
+                                                        } else
+                                                        {
+                                                            Console.WriteLine(MSGHpDruid + (hpdruid + healhabilitydruid));
+                                                            hpdruid += healhabilitydruid;
+                                                        }
                                                     }
                                                     Console.WriteLine("");
                                                     cooldownhabilitydruid = maxcooldown;
