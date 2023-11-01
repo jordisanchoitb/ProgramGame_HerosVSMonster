@@ -259,7 +259,7 @@ namespace GameProject
 
                         } while (!(hparcher >= HpMinArcher && hparcher <= HpMaxArcher) && countdowntrySetHpCharacter != zero);
 
-                        /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                        /* Quando sigui diferent a 0 significa o igual a 0 i la resposta sigui correcta  pregutara el segon valor a introduir aixi amb tots*/
 
                         if (countdowntrySetHpCharacter != zero || (hparcher >= HpMinArcher && hparcher <= HpMaxArcher && countdowntrySetHpCharacter == zero))
                         {
@@ -340,7 +340,7 @@ namespace GameProject
 
                             } while (!(hpbarbarian >= HpMinBarbarian && hpbarbarian <= HpMaxBarbarian) && countdowntrySetHpCharacter != zero);
 
-                            /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                        /* Quando sigui diferent a 0 significa o igual a 0 i la resposta sigui correcta  pregutara el segon valor a introduir aixi amb tots*/
 
                             if (countdowntrySetHpCharacter != zero || (hpbarbarian >= HpMinBarbarian && hpbarbarian <= HpMaxBarbarian && countdowntrySetHpCharacter == zero))
                             {
@@ -420,7 +420,7 @@ namespace GameProject
 
                                 } while (!(hpmagician >= HpMinMagician && hpmagician <= HpMaxMagician) && countdowntrySetHpCharacter != zero);
 
-                                /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                            /* Quando sigui diferent a 0 significa o igual a 0 i la resposta sigui correcta  pregutara el segon valor a introduir aixi amb tots*/
 
                                 if (countdowntrySetHpCharacter != zero || (hpmagician >= HpMinMagician && hpmagician <= HpMaxMagician && countdowntrySetHpCharacter == zero))
                                 {
@@ -500,7 +500,7 @@ namespace GameProject
 
                                     } while (!(hpdruid >= HpMinDruid && hpdruid <= HpMaxDruid) && countdowntrySetHpCharacter != zero);
 
-                                    /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                                /* Quando sigui diferent a 0 significa o igual a 0 i la resposta sigui correcta  pregutara el segon valor a introduir aixi amb tots*/
 
                                     if (countdowntrySetHpCharacter != zero || (hpdruid >= HpMinDruid && hpdruid <= HpMaxDruid && countdowntrySetHpCharacter == zero))
                                     {
@@ -581,7 +581,7 @@ namespace GameProject
 
                                         } while (!(hpmonster >= HpMinMonster && hpmonster <= HpMaxMonster) && countdowntrySetHpCharacter != zero);
 
-                                        /* Cuando sea distinta a 0 significa que no a utilizado los 3 intentos asi que pone el otro valor*/
+                                    /* Quando sigui diferent a 0 significa o igual a 0 i la resposta sigui correcta  pregutara el segon valor a introduir aixi amb tots*/
 
                                         if (countdowntrySetHpCharacter != zero || (hpmonster >= HpMinMonster && hpmonster <= HpMaxMonster && countdowntrySetHpCharacter == zero))
                                         {
